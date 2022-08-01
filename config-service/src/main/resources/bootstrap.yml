@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Victor749/ucuenca-web-store.git
+          uri: https://github.com/LuisMSotamba/orchestation.git
           default-label: main
           searchPaths: config-data
           username: ${GIT_USER}
