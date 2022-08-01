@@ -7,7 +7,7 @@ spring:
       server:
         git:
           uri: https://github.com/LuisMSotamba/orchestation.git
-          default-label: main
+          default-label: master
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
