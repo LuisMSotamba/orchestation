@@ -1,19 +1,17 @@
 
-server.port=8084
-server.servlet.application-display-name=PillService
-spring.application.name=PillService
-
-spring.data.mongodb.uri=mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/smartdrugsdb?retryWrites=true&w=majority
-
-eureka.client.serviceUrl.defaultZone = http://52.73.98.2:8099/eureka/
-
-#spring.data.mongodb.host=cluster0.0pwrpay.mongodb.net
-#spring.data.mongodb.port=27017
-#spring.data.mongodb.database=smartdrugsdb
-#spring.data.mongodb.username=danielseaman
-#spring.data.mongodb.password=ythgqdbkamp
-
-
-#IMPORTANT: COMMENT NEXT LINES WHEN TRYING TO CONNECT TO EUREKA SERVER
-eureka.client.register-with-eureka=false
-eureka.client.fetch-registry=false
+eureka:
+  client:
+    fetch-registry: 'false'
+    register-with-eureka: 'false'
+    serviceUrl:
+      defaultZone: http://52.73.98.2:8099/eureka/
+spring:
+  application:
+    name: PillService
+  data:
+    mongodb:
+      uri: mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/smartdrugsdb?retryWrites=true&w=majority
+server:
+  port: '8084'
+  servlet:
+    application-display-name: PillService

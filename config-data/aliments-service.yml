@@ -1,32 +1,48 @@
-server.port=${port:8080}
-server.error.include-message=always
-server.error.include-binding-erros=always
-spring.datasource.url=jdbc:postgresql://db.ssnqugygamsjojwjqqjj.supabase.co/postgres
-spring.datasource.username=postgres
-spring.datasource.password=Buele30.03.1997LES
-spring.datasource.driver-class-name=org.postgresql.Driver
-
-spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.hibernate.ddl-auto=update
-
-
-eureka.client.serviceUrl.defaultZone=http://52.73.98.2:8099/eureka/
-logging.pattern.console= "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
-management.endpoints.web.exposure.incluse="*"
-resilience4j.circuitbreaker.intances.productCB.registerHealthIndicator=true
-resilience4j.circuitbreaker.intances.productCB.slidingWindowSize=10
-resilience4j.circuitbreaker.intances.productCB.permittedNumberOfCallsInHalfOpenState=3
-resilience4j.circuitbreaker.intances.productCB.slidingWindowType=TIME_BASED
-resilience4j.circuitbreaker.intances.productCB.minimumNumberOfCalls=4
-resilience4j.circuitbreaker.intances.productCB.waitDurationInOpenState=5s
-resilience4j.circuitbreaker.intances.productCB.failureRateThreshold=50
-resilience4j.circuitbreaker.intances.productCB.eventConsumerBufferSize=10
-
-resilience4j.circuitbreaker.intances.userCB.registerHealthIndicator=true
-resilience4j.circuitbreaker.intances.userCB.slidingWindowSize=10
-resilience4j.circuitbreaker.intances.userCB.permittedNumberOfCallsInHalfOpenState=3
-resilience4j.circuitbreaker.intances.userCB.slidingWindowType=TIME_BASED
-resilience4j.circuitbreaker.intances.userCB.minimumNumberOfCalls=4
-resilience4j.circuitbreaker.intances.userCB.waitDurationInOpenState=5s
-resilience4j.circuitbreaker.intances.userCB.failureRateThreshold=50
-resilience4j.circuitbreaker.intances.userCB.eventConsumerBufferSize=10
+resilience4j:
+  circuitbreaker:
+    intances:
+      productCB:
+        slidingWindowType: TIME_BASED
+        slidingWindowSize: '10'
+        failureRateThreshold: '50'
+        permittedNumberOfCallsInHalfOpenState: '3'
+        waitDurationInOpenState: 5s
+        eventConsumerBufferSize: '10'
+        registerHealthIndicator: 'true'
+        minimumNumberOfCalls: '4'
+      userCB:
+        registerHealthIndicator: 'true'
+        eventConsumerBufferSize: '10'
+        failureRateThreshold: '50'
+        minimumNumberOfCalls: '4'
+        permittedNumberOfCallsInHalfOpenState: '3'
+        slidingWindowSize: '10'
+        waitDurationInOpenState: 5s
+        slidingWindowType: TIME_BASED
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: Buele30.03.1997LES
+    username: postgres
+    url: jdbc:postgresql://db.ssnqugygamsjojwjqqjj.supabase.co/postgres
+server:
+  error:
+    include-binding-erros: always
+    include-message: always
+  port: ${port:8080}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://52.73.98.2:8099/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        incluse: '"*"'
+logging:
+  pattern:
+    console: '"%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"'

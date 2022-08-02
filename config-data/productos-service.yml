@@ -1,0 +1,66 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+    enabled-by-default: 'true'
+  endpoint:
+    metrics:
+      enabled: 'true'
+    info:
+      enabled: 'true'
+eureka:
+  instance:
+    instance-id: ${DOMAIN_NAME:productosmicroapi.herokuapp.com}
+    healthCheckUrl: https://${eureka.hostname}/actuator/health
+    homePageUrl: https://${eureka.hostname}/
+    hostname: ${DOMAIN_NAME:productosmicroapi.herokuapp.com}
+    statusPageUrl: https://${eureka.hostname}/actuator/info
+  client:
+    service-url:
+      defaultZone: http://52.73.98.2:8099/eureka/
+spring:
+  boot:
+    admin:
+      client:
+        instance:
+          service-base-url: https://${DOMAIN_NAME:productosmicroapi.herokuapp.com}
+        url: https://adminmicroservices.herokuapp.com
+  profiles: ${PROFILE_NAME:default}
+  datasource:
+    driverClassName: org.postgresql.Driver
+    password: W2SnqDfIBZOT0UNR
+    username: postgres
+    url: jdbc:postgresql://db.itkzegpmjgbuwrumuoor.supabase.co/postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: 'true'
+  data:
+    jpa:
+      repositories:
+        enabled: 'true'
+  application:
+    name: productos-service
+resilience4j:
+  circuitbreaker:
+    intances:
+      userCB:
+        registerHealthIndicator: 'true'
+        eventConsumerBufferSize: '10'
+        failureRateThreshold: '50'
+        minimumNumberOfCalls: '4'
+        permittedNumberOfCallsInHalfOpenState: '3'
+        slidingWindowSize: '10'
+        waitDurationInOpenState: 5s
+        slidingWindowType: TIME_BASED
+ABLY_API_KEY: n7RG0Q.5r0FLg:hwnQvHf_nwbedo_EzzQ108wdFjl0GVq71PzshLxiZHA
+server:
+  port: ${port:8080}
+  error:
+    incluse-binding-errors: always
+    include-message: always
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5P} %m%n'
