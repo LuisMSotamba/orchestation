@@ -7,7 +7,7 @@ eureka:
       defaultZone: http://52.73.98.2:8099/eureka/
 spring:
   application:
-    name: PillService
+    name: pill-service
   data:
     mongodb:
       uri: mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/smartdrugsdb?retryWrites=true&w=majority

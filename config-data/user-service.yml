@@ -28,6 +28,8 @@ server:
   #      use_sql_comments: false
   #      format_sql: false
 spring:
+  application:
+      name: user-service
   jpa:
     database: POSTGRESQL
     show-sql: true
