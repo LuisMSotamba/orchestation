@@ -1,7 +1,7 @@
 spring.jpa.defer-datasource-initialization: true
 
 server:
-  port: 8092
+  port: 8081
   error:
     include-message: always
     include-binding-errors: always
@@ -51,9 +51,10 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8099/eureka/
+      defaultZone: http://52.73.98.2:8099/eureka/
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
