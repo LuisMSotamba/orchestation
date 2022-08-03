@@ -17,8 +17,15 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user/**
-      routes:
         - id: aliments-service
           uri: lb://aliments-service
           predicates:
             - Path=/alimentation/**
+        - id: pill-service
+          uri: lb://pill-service
+          predicates:
+            - Path=/pills/**
+        - id: tratamientos-service
+          uri: lb://tratamientos-service
+          predicates:
+            - Path=/treatement/**
