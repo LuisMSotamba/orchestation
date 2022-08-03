@@ -1,17 +1,18 @@
 
-eureka:
-  client:
-    fetch-registry: 'false'
-    register-with-eureka: 'false'
-    serviceUrl:
-      defaultZone: http://52.73.98.2:8099/eureka/
-spring:
+server:
+  port: ${PORT:8084}
+  servlet:
+    application-display-name : pill-service
   application:
-    name: pill-service
+    name : pill-service
+
+spring:
   data:
     mongodb:
-      uri: mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/smartdrugsdb?retryWrites=true&w=majority
-server:
-  port: '8084'
-  servlet:
-    application-display-name: PillService
+      uri : mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/smartdrugsdb?retryWrites=true&w=majority
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone : http://52.73.98.2:8099/eureka/
+
