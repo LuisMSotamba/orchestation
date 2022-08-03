@@ -29,3 +29,11 @@ spring:
           uri: lb://tratamientos-service
           predicates:
             - Path=/treatement/**
+        - id: productos-service
+          uri: lb://productos-service
+          predicates:
+            - Path=/fridge/**
+        - id: actividadfisica-service
+          uri: lb://actividadfisica-service
+          predicates:
+            - Path=/activity/**
