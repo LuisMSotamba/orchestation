@@ -10,3 +10,12 @@ spring:
       uri: mongodb+srv://aracely10:aracely1008@cluster0.biago.mongodb.net/?retryWrites=true&w=majority
     application:
       name: control-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://52.73.98.2:8099/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
