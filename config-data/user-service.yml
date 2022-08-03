@@ -51,6 +51,12 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 eureka:
+  instance:
+    instance-id: ${eureka.hostname}
+    healthCheckUrl: http://${eureka.hostname}/actuator/health
+    homePageUrl: http://54.87.30.242:8081/user
+    hostname: http://54.87.30.242:8081/
+    statusPageUrl: https://${eureka.hostname}/actuator/info
   client:
     serviceUrl:
       defaultZone: http://52.73.98.2:8099/eureka/
