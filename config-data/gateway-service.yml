@@ -13,17 +13,12 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins: "*"
-            allowedMethods:
-            - GET
-            - PUT
-            - DELETE
-            - POST
       discovery:
         locator:
           enabled: true
       routes:
         - id: user-service
-          uri: lb://user-service
+          uri: http://54.87.30.242:8081
           predicates:
             - Path=/user/**
         - id: aliments-service
