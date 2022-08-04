@@ -8,6 +8,12 @@ spring:
       uri: mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/?retryWrites=true&w=majority
       port: 27017
       database: smartdrugsdb
+  boot:
+    admin:
+      client:
+        instance:
+          service-base-url: https://${DOMAIN_NAME:microtratamientos.herokuapp.com}
+
 
   application:
     name: tratamientos
@@ -16,3 +22,15 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://52.73.98.2:8099/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    enabled-by-default: "true"
+  endpoint:
+    metrics:
+      enabled: "true"
+    info:
+      enabled: "true"
