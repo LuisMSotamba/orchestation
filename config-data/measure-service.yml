@@ -10,6 +10,11 @@ spring:
       uri: mongodb+srv://aracely10:aracely1008@cluster0.biago.mongodb.net/?retryWrites=true&w=majority
     application:
       name: measure-service
+  boot:
+    admin:
+      client:
+        instance:
+          service-base-url: https://${DOMAIN_NAME:measure-service.herokuapp.com}
 eureka:
   instance:
     instance-id: ${DOMAIN_NAME:measure-service.herokuapp.com}
