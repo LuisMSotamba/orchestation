@@ -47,10 +47,10 @@ spring:
           predicates:
             - Path=/activity/**
         - id: control-service
-          uri: lb://control-service
+          uri: http://control-service.herokuapp.com
           predicates:
             - Path=/control/**
         - id: measure-service
-          uri: lb://measure-service
+          uri: http://measure-service.herokuapp.com
           predicates:
             - Path=/measures/**
