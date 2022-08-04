@@ -14,8 +14,7 @@ spring:
       password: th3_eth3r
   boot:
     admin:
-      client:
-        url: http://34.232.227.255:8086
+      client:        
         instance:
           service-base-url: https://temperaturemicroservice.azurewebsites.net
 eureka:
