@@ -37,3 +37,11 @@ spring:
           uri: lb://actividadfisica-service
           predicates:
             - Path=/activity/**
+        - id: control-service
+          uri: lb://control-service
+          predicates:
+            - Path=/control/**
+        - id: measure-service
+          uri: lb://measure-service
+          predicates:
+            - Path=/measures/**
