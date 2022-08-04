@@ -4,6 +4,12 @@ server:
     include-message: always
     include-binding-errors: always
 eureka:
+  instance:
+    instance-id: ${DOMAIN_NAME:control-aparato-service.herokuapp.com}
+    healthCheckUrl: https://${eureka.hostname}/actuator/health
+    homePageUrl: https://${eureka.hostname}/
+    hostname: ${DOMAIN_NAME:control-aparato-service.herokuapp.com}
+    statusPageUrl: https://${eureka.hostname}/actuator/info
   client:
     serviceUrl:
       defaultZone: http://52.73.98.2:8099/eureka/
