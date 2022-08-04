@@ -14,7 +14,7 @@ spring:
     admin:
       client:
         instance:
-          service-base-url=https: //${DOMAIN_NAME:pillservice.herokuapp.com}
+          service-base-url: https://${DOMAIN_NAME:pillservice.herokuapp.com}
 
 eureka:
   client:
