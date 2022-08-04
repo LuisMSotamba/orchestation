@@ -16,6 +16,8 @@ spring:
     admin:
       client:
         url: http://34.232.227.255:8086
+        instance:
+          service-base-url: https://temperaturemicroservice.azurewebsites.net
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.uuid}
