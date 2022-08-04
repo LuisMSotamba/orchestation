@@ -9,6 +9,15 @@ eureka:
 spring:
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+            - GET
+            - PUT
+            - DELETE
+            - POST
       discovery:
         locator:
           enabled: true
@@ -30,7 +39,7 @@ spring:
           predicates:
             - Path=/treatement/**
         - id: productos-service
-          uri: lb://productos-service
+          uri: https://productosmicroapi.herokuapp.com
           predicates:
             - Path=/fridge/**
         - id: actividadfisica-service
