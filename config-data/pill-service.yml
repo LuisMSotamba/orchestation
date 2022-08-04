@@ -10,6 +10,11 @@ spring:
   data:
     mongodb:
       uri : mongodb+srv://danielseaman:betelgeuse@cluster0.0pwrpay.mongodb.net/smartdrugsdb?retryWrites=true&w=majority
+  boot:
+    admin:
+      client:
+        instance:
+          service-base-url=https: //${DOMAIN_NAME:pillservice.herokuapp.com}
 
 eureka:
   client:
