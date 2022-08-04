@@ -16,8 +16,14 @@ eureka:
     serviceUrl:
       defaultZone : http://52.73.98.2:8099/eureka/
 
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    enabled-by-default: "true"
+  endpoint:
+    metrics:
+      enabled: "true"
+    info:
+      enabled: "true"
