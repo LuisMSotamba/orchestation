@@ -2,7 +2,7 @@ server:
   error:
     include-binding-errors: always
     include-message: always
-  port: '8092'
+  port: ${port:8080}
 spring:
   data:
     mongodb:
@@ -11,9 +11,18 @@ spring:
     application:
       name: control-service
 eureka:
+  instance:
+    instance-id: ${DOMAIN_NAME:control-service.herokuapp.com}
+    healthCheckUrl: https://${eureka.hostname}/actuator/health
+    homePageUrl: https://${eureka.hostname}/
+    hostname: ${DOMAIN_NAME:control-service.herokuapp.com}
+    statusPageUrl: https://${eureka.hostname}/actuator/info
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://52.73.98.2:8099/eureka/
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5P} %m%n'
 management:
   endpoints:
     web:
