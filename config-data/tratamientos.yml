@@ -1,6 +1,8 @@
 
 server:
   port: ${PORT:8083}
+  application:
+    name: tratamientos
 
 spring:
   data:
@@ -13,10 +15,6 @@ spring:
       client:
         instance:
           service-base-url: https://${DOMAIN_NAME:microtratamientos.herokuapp.com}
-
-
-  application:
-    name: tratamientos
 
 eureka:
   client:
